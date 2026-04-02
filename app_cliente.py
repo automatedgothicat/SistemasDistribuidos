@@ -36,7 +36,7 @@ if __name__ == "__main__":
     # matriculados_disciplina("SD")
 
     ans = 0
-    while ans != 0:
+    while ans != "0":
         print('''
               0 - Fechar/sair
               1 - Listar disciplinas
@@ -53,8 +53,9 @@ if __name__ == "__main__":
         elif ans == "3":
             nome_disciplina = input("Insira o nome da disciplina:")
             nome_aluno = input("Insira o nome do aluno:")
+            print("Tentando cadastrar ", nome_aluno, " em ", nome_disciplina)
             matricula(nome_disciplina,nome_aluno)
-            print("Cadastrando ", nome_aluno, " em ", nome_disciplina)
+        elif ans == "0":
+            print("Programa encerrado")
         else:
             print("Tente novamente")
-    print("Programa encerrado")
