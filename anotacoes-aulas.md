@@ -13,4 +13,4 @@ Faltei essa aula, os códigos são app_loja_bd.py, app_loja_bd_sockets.py, app_l
 ## 01-04-2026
 Os códigos dessa aula são processos.py, threads.py e threads-sincronizadas.py
 ## 22-04-2026
-Os codigos dessa aula são RPC.py; cliente_RPC.py, servidor_RPC.py; servidor_lock_RPC.py, clientes_RPC.py;
+Os codigos dessa aula são RPC.py; cliente_RPC.py, servidor_RPC.py; servidor_lock_RPC.py, clientes_RPC.py; servidor_json_RPC.py e cliente_json_RPC.py
