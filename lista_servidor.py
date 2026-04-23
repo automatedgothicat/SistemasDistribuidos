@@ -16,8 +16,12 @@ class DBList:
         self.value.remove(data)
         return self
 
-    def count(self):
-        return self.value.count()
+    def count(self, data):
+        temp = len(data)
+        print(f"{temp} elemento(s) inserido(s)")
+        total = len(self.value)
+        print(f"{total} elementos no vetor")
+        return total
 
 class Log:
     def __init__(self):
@@ -34,7 +38,7 @@ class Server:
         self.port = port
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.bind((self.host, self.port))
-        self.sock.listen(5)
+        self.sock.listen(10)
         self.log = Log()
         print(f"Servidor ouvindo em {self.host}:{self.port}")
 
@@ -61,7 +65,7 @@ class Server:
                     self.dbList.append(params)
                     conn.send(pickle.dumps(self.dbList.value))
                 if op == "COUNT":
-                    conn.send(pickle.dumps(self.dbList.count()))
+                    conn.send(pickle.dumps(self.dbList.count(params)))
                 if op == "REMOVE":
                     self.dbList.remove(params)
                     print(f"{params} removido")
@@ -70,13 +74,12 @@ class Server:
                     conn.send(pickle.dumps(self.add(params)))
                 if op == "MULTIPLY":
                     conn.send(pickle.dumps(self.multiply(params)))
-
-                print(f"Log da chamada: {self.log.value}")
             except Exception as e:
                 print("Erro:", e)
                 break
 
         conn.close()
+        print(f"Log da chamada: {self.log.value}")
         print(f"Cliente desconectado: {addr}")
 
     def run(self):

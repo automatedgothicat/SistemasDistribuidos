@@ -14,10 +14,10 @@ class Client:
             result = pickle.loads(sock.recv(4096))
             return result
 
-    def count(self):
+    def count(self, data):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.connect((self.host, self.port))
-            msg = ("COUNT")
+            msg = ("COUNT", data)
             sock.send(pickle.dumps(msg))
             result = pickle.loads(sock.recv(4096))
             return result
@@ -52,10 +52,10 @@ if __name__ == "__main__":
     resultado = client.append(x)
     soma = client.add(x)
     produto = client.multiply(x)
-    num = client.count()
+    num = client.count(x)
 
-    y = input("Escreva um numero para remover: ")
-    removed = cliente.remove(y)
+    y = int(input("Escreva um numero para remover: "))
+    removed = client.remove(y)
 
     print("Lista recebida do servidor:", resultado)
     print("Soma da lista recebida do servidor:", soma)
