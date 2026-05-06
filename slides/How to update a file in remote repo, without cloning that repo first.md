@@ -1,0 +1,3 @@
+It is impossible to push commit to a remote git repo without first cloning said repo, but you can use the '--deph' options within 'git clone'. There are many workarounds, but you can't simply commit any file by terminal as you would normally do, so it is fine to just use upload it to github manually. 
+
+https://stackoverflow.com/questions/16077691/how-to-update-a-file-in-remote-repo-without-cloning-that-repo-first
